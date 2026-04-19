@@ -26,6 +26,6 @@ jobs:
       - uses: probelabs/proof-action@v1
         with:
           version: '0.1.0-main.20260404054230'
-          fail-level: warn
+          fail-level: error
           scope: full
           format: markdown
