@@ -28,6 +28,8 @@ traces:
         - escape_test.go
         - mcdc_supplement_test.go
         - parser_test.go
+    documented_by_extra:
+        - README.md
 verification:
     assurance_level: E
     formalization_status: valid

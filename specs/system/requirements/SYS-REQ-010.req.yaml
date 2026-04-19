@@ -26,6 +26,8 @@ traces:
         - STK-REQ-005
     verified_by_extra:
         - parser_test.go
+    documented_by_extra:
+        - README.md
 verification:
     assurance_level: E
     formalization_status: valid

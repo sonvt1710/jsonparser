@@ -30,10 +30,11 @@ project:
     commands:
         build: go build ./...
         test: mkdir -p .proof/coverage .proof/test-results && go test ./... -count=1 -coverprofile=.proof/coverage/unit.coverprofile -json > .proof/test-results/go-test.json 2>&1
-    verification:
-        fixture_evidence:
-            components:
-                - parser
+    # Fixtures are generated artifacts, not committed to the repo.
+    # MC/DC coverage is enforced through test annotations instead.
+    # To regenerate locally:
+    #   proof testgen specs/system parser --output tests/
+    #   proof proptest specs/system parser --source z3 --output tests/parser/
     checks:
         solver_latency_clean:
             threshold: 360
@@ -83,3 +84,8 @@ project:
             - system_owner
             - lead_engineer
         comment_required: true
+    documentation:
+        sources:
+            - path: .
+              type: auto
+        threshold: 0

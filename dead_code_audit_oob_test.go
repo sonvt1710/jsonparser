@@ -7,6 +7,7 @@ import (
 // Test that ObjectEach doesn't panic with out-of-bounds access
 // after removing the `offset < len(data)` loop guard.
 
+// Verifies: SYS-REQ-007 [boundary]
 func TestObjectEach_OOB_TruncatedAfterComma(t *testing.T) {
 	// {"a":1, — truncated right after comma, no more data
 	// After parsing "a":1, finds comma at step 4, increments offset past comma.
@@ -22,6 +23,7 @@ func TestObjectEach_OOB_TruncatedAfterComma(t *testing.T) {
 	t.Logf("Correctly got error: %v", err)
 }
 
+// Verifies: SYS-REQ-007 [boundary]
 func TestObjectEach_OOB_TruncatedAfterColon(t *testing.T) {
 	// {"a": — truncated after colon
 	err := ObjectEach([]byte(`{"a":`), func(key []byte, value []byte, dataType ValueType, offset int) error {
@@ -33,6 +35,7 @@ func TestObjectEach_OOB_TruncatedAfterColon(t *testing.T) {
 	t.Logf("Correctly got error: %v", err)
 }
 
+// Verifies: SYS-REQ-007 [boundary]
 func TestObjectEach_OOB_TruncatedAfterKey(t *testing.T) {
 	// {"a" — truncated after key string
 	err := ObjectEach([]byte(`{"a"`), func(key []byte, value []byte, dataType ValueType, offset int) error {
@@ -44,6 +47,7 @@ func TestObjectEach_OOB_TruncatedAfterKey(t *testing.T) {
 	t.Logf("Correctly got error: %v", err)
 }
 
+// Verifies: SYS-REQ-007 [boundary]
 func TestObjectEach_OOB_TruncatedMidKey(t *testing.T) {
 	// {"a — unterminated string
 	err := ObjectEach([]byte(`{"a`), func(key []byte, value []byte, dataType ValueType, offset int) error {
@@ -55,6 +59,7 @@ func TestObjectEach_OOB_TruncatedMidKey(t *testing.T) {
 	t.Logf("Correctly got error: %v", err)
 }
 
+// Verifies: SYS-REQ-007 [boundary]
 func TestObjectEach_OOB_JustOpenBrace(t *testing.T) {
 	// { — only opening brace, then nothing
 	err := ObjectEach([]byte(`{`), func(key []byte, value []byte, dataType ValueType, offset int) error {
@@ -66,6 +71,7 @@ func TestObjectEach_OOB_JustOpenBrace(t *testing.T) {
 	t.Logf("Correctly got error: %v", err)
 }
 
+// Verifies: SYS-REQ-007 [boundary]
 func TestObjectEach_OOB_BraceAndWhitespace(t *testing.T) {
 	// {    — opening brace then only whitespace
 	err := ObjectEach([]byte(`{   `), func(key []byte, value []byte, dataType ValueType, offset int) error {
@@ -78,6 +84,7 @@ func TestObjectEach_OOB_BraceAndWhitespace(t *testing.T) {
 }
 
 // ArrayEach infinite loop guard: verify o==0 catches all no-progress cases
+// Verifies: SYS-REQ-006 [boundary]
 func TestArrayEach_OOB_MalformedElements(t *testing.T) {
 	tests := []struct {
 		name string

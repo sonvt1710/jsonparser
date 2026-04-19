@@ -339,6 +339,8 @@ Also last benchmark did not included `EachKey` test, because in this particular 
 
 ## Formal Verification
 
+<!-- Documents: SYS-REQ-001, SYS-REQ-016, SYS-REQ-017, SYS-REQ-018, SYS-REQ-019, SYS-REQ-020, SYS-REQ-021, SYS-REQ-022, SYS-REQ-023, SYS-REQ-024, SYS-REQ-025, SYS-REQ-026, SYS-REQ-027 -->
+
 This project uses [ReqProof](https://reqproof.com) for formal requirements verification, achieving:
 
 - **92 formally specified requirements** covering all public API behavior including edge cases, malformed input, boundary values, and error propagation

@@ -28,6 +28,8 @@ traces:
     verified_by_extra:
         - deep_spec_test.go
         - parser_test.go
+    documented_by_extra:
+        - README.md
 verification:
     assurance_level: B
     formalization_status: valid

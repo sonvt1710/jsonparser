@@ -16,7 +16,9 @@ component: parser
 rationale: The README presents typed helpers as part of the public API for callers who already know the expected JSON scalar type.
 tags: []
 variables: []
-traces: {}
+traces:
+    documented_by_extra:
+        - README.md
 verification:
     assurance_level: E
     formalization_status: none
