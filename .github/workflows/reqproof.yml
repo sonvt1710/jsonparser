@@ -23,8 +23,10 @@ jobs:
           path: ~/.proof/solvers
           key: proof-solvers-${{ runner.os }}
 
+      # Pin to current release until latest channel is populated
       - uses: probelabs/proof-action@v1
         with:
+          version: '0.1.0-main.20260404054230'
           fail-level: error
           scope: full
           format: markdown
