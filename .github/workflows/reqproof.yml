@@ -37,6 +37,9 @@ jobs:
           restore-keys: |
             proof-index-${{ runner.os }}-
 
+      - name: Install Z3 solver
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq z3
+
       - uses: probelabs/proof-action@v1
         with:
           fail-level: warn
