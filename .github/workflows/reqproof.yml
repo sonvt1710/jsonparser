@@ -37,6 +37,11 @@ jobs:
           restore-keys: |
             proof-index-${{ runner.os }}-
 
+      # Pre-download Z3 solver so audit checks can use it.
+      # proof auto-downloads during verify but audit checks need it upfront.
+      - name: Pre-download Z3 solver
+        run: proof verify-properties specs/system parser --timeout 5 2>/dev/null || true
+
       - uses: probelabs/proof-action@v1
         with:
           fail-level: warn
