@@ -339,7 +339,7 @@ Also last benchmark did not included `EachKey` test, because in this particular 
 
 ## Formal Verification
 
-This project uses [ReqProof](https://reqproof.dev) for formal requirements verification, achieving:
+This project uses [ReqProof](https://reqproof.com) for formal requirements verification, achieving:
 
 - **92 formally specified requirements** covering all public API behavior including edge cases, malformed input, boundary values, and error propagation
 - **100% MC/DC coverage** (Modified Condition/Decision Coverage) — every boolean decision in the code is independently proven exercised
