@@ -792,3 +792,195 @@ variables:
   type: bool
   direction: output
   description: True when EachKey treats the tokenEnd sentinel as an end-of-input condition and returns safely.
+- name: get_called_twice_with_same_input
+  type: bool
+  direction: input
+  description: True when Get is called twice with identical JSON input and identical key paths.
+- name: get_returns_identical_results
+  type: bool
+  direction: output
+  description: True when Get returns identical value slices, value types, offsets, and error values on both calls.
+- name: get_called_on_valid_input
+  type: bool
+  direction: input
+  description: True when Get is called on a non-nil JSON byte slice.
+- name: get_does_not_mutate_input
+  type: bool
+  direction: output
+  description: True when Get does not mutate the input byte slice during the call.
+- name: get_input_is_nil
+  type: bool
+  direction: input
+  description: True when Get is called with a nil byte slice as input.
+- name: get_returns_safe_result_for_nil
+  type: bool
+  direction: output
+  description: True when Get returns a not-found or error result without panicking for nil input.
+- name: get_input_is_deeply_nested
+  type: bool
+  direction: input
+  description: True when Get is called on JSON with deeply nested structures (64+ levels).
+- name: get_handles_deep_nesting_safely
+  type: bool
+  direction: output
+  description: True when Get returns a correct result or error for deeply nested input without panicking.
+- name: getstring_called_twice_with_same_input
+  type: bool
+  direction: input
+  description: True when GetString is called twice with identical JSON input and identical key paths.
+- name: getstring_returns_identical_results
+  type: bool
+  direction: output
+  description: True when GetString returns identical decoded string values and error values on both calls.
+- name: getstring_input_is_nil
+  type: bool
+  direction: input
+  description: True when GetString is called with a nil byte slice as input.
+- name: getstring_returns_safe_result_for_nil
+  type: bool
+  direction: output
+  description: True when GetString returns an empty string and error without panicking for nil input.
+- name: getstring_input_has_escaped_unicode
+  type: bool
+  direction: input
+  description: True when GetString addresses a JSON string containing escaped Unicode sequences.
+- name: getstring_decodes_and_preserves_semantics
+  type: bool
+  direction: output
+  description: True when GetString decodes escaped Unicode to correct Go string runes preserving semantic equivalence.
+- name: getstring_input_has_unicode_edge_cases
+  type: bool
+  direction: input
+  description: True when GetString addresses a JSON string containing Unicode edge cases like BOM or ZWJ.
+- name: getstring_handles_unicode_edges_safely
+  type: bool
+  direction: output
+  description: True when GetString handles Unicode edge cases correctly or returns a well-defined error.
+- name: typed_getter_called_twice_with_same_input
+  type: bool
+  direction: input
+  description: True when GetInt, GetFloat, or GetBoolean is called twice with identical input.
+- name: typed_getter_returns_identical_results
+  type: bool
+  direction: output
+  description: True when typed getters return identical typed values and error values on both calls.
+- name: typed_getter_input_is_nil
+  type: bool
+  direction: input
+  description: True when GetInt, GetFloat, or GetBoolean is called with a nil byte slice.
+- name: typed_getter_returns_safe_result_for_nil
+  type: bool
+  direction: output
+  description: True when typed getters return zero value and error without panicking for nil input.
+- name: getint_input_has_large_number_edge_case
+  type: bool
+  direction: input
+  description: True when GetInt addresses a JSON number with edge-case formatting like leading zeros or max-length digit strings.
+- name: getint_handles_large_numbers_safely
+  type: bool
+  direction: output
+  description: True when GetInt returns correct int64 or well-defined error for large-number edge cases.
+- name: traversal_called_twice_with_same_input
+  type: bool
+  direction: input
+  description: True when ArrayEach, ObjectEach, or EachKey is called twice with identical input.
+- name: traversal_returns_identical_results
+  type: bool
+  direction: output
+  description: True when traversal callbacks are invoked in the same order with same values on both calls.
+- name: traversal_input_is_nil
+  type: bool
+  direction: input
+  description: True when ArrayEach, ObjectEach, or EachKey is called with a nil byte slice.
+- name: traversal_returns_safe_result_for_nil
+  type: bool
+  direction: output
+  description: True when traversal returns error without invoking callbacks and without panicking for nil input.
+- name: traversal_input_is_deeply_nested
+  type: bool
+  direction: input
+  description: True when ArrayEach or ObjectEach is called on JSON with deeply nested structures.
+- name: traversal_handles_deep_nesting_safely
+  type: bool
+  direction: output
+  description: True when traversal handles deeply nested input safely without panicking or stack overflowing.
+- name: set_applied_twice_with_same_args
+  type: bool
+  direction: input
+  description: True when Set is called twice on the same input with the same value and key path.
+- name: set_second_call_produces_same_result
+  type: bool
+  direction: output
+  description: True when the second Set call produces the same output as the first application.
+- name: mutation_input_is_nil
+  type: bool
+  direction: input
+  description: True when Set or Delete is called with a nil byte slice.
+- name: mutation_returns_safe_result_for_nil
+  type: bool
+  direction: output
+  description: True when Set returns error and Delete returns nil/empty without panicking for nil input.
+- name: mutation_input_has_unicode_keys
+  type: bool
+  direction: input
+  description: True when Set or Delete is called with key paths containing Unicode characters.
+- name: mutation_handles_unicode_keys_safely
+  type: bool
+  direction: output
+  description: True when Set or Delete correctly resolves Unicode key paths or returns well-defined error.
+- name: getunsafestring_called_twice_with_same_input
+  type: bool
+  direction: input
+  description: True when GetUnsafeString is called twice with identical input.
+- name: getunsafestring_returns_identical_results
+  type: bool
+  direction: output
+  description: True when GetUnsafeString returns identical raw string values on both calls.
+- name: getunsafestring_input_is_nil
+  type: bool
+  direction: input
+  description: True when GetUnsafeString is called with a nil byte slice.
+- name: getunsafestring_returns_safe_result_for_nil
+  type: bool
+  direction: output
+  description: True when GetUnsafeString returns empty string and error without panicking for nil input.
+- name: getunsafestring_input_has_unicode_edge_cases
+  type: bool
+  direction: input
+  description: True when GetUnsafeString addresses a value with Unicode edge cases.
+- name: getunsafestring_handles_unicode_edges_safely
+  type: bool
+  direction: output
+  description: True when GetUnsafeString returns raw bytes as Go string without corruption for Unicode edge cases.
+- name: parse_helper_called_twice_with_same_input
+  type: bool
+  direction: input
+  description: True when a Parse helper is called twice with identical byte input.
+- name: parse_helper_returns_identical_results
+  type: bool
+  direction: output
+  description: True when Parse helpers return identical typed values and error values on both calls.
+- name: parse_helper_input_is_nil
+  type: bool
+  direction: input
+  description: True when a Parse helper is called with a nil byte slice.
+- name: parse_helper_returns_safe_result_for_nil
+  type: bool
+  direction: output
+  description: True when Parse helpers return zero value and error (or empty string) without panicking for nil input.
+- name: parsestring_input_has_standard_escapes
+  type: bool
+  direction: input
+  description: True when ParseString input contains standard JSON escape sequences.
+- name: parsestring_roundtrip_preserves_semantics
+  type: bool
+  direction: output
+  description: True when ParseString decoded string preserves semantic equivalence with original JSON encoding.
+- name: parseint_input_has_edge_case_number
+  type: bool
+  direction: input
+  description: True when ParseInt receives an edge-case numeric token like negative zero or very long digit strings.
+- name: parseint_handles_edge_numbers_safely
+  type: bool
+  direction: output
+  description: True when ParseInt returns correct int64 or well-defined error for edge-case numbers.

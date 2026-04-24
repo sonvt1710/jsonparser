@@ -27,6 +27,11 @@ project:
         - truncated_escape_sequence
         - partial_literal
         - truncated_mid_element
+        - determinism
+        - idempotency
+        - nil_safety
+        - encoding_safety
+        - edge_case
     commands:
         build: go build ./...
         test: mkdir -p .proof/coverage .proof/test-results && go test ./... -count=1 -coverprofile=.proof/coverage/unit.coverprofile -json > .proof/test-results/go-test.json 2>&1
@@ -67,9 +72,9 @@ project:
             enabled: true
         mcdc_coverage: {}
         proof_complexity_clean:
-            max_formalized_requirements: 95
-            max_variables: 220
-            max_guarantees: 95
+            max_formalized_requirements: 120
+            max_variables: 280
+            max_guarantees: 120
         evidence_diversity:
             min_classes:
                 A: 3

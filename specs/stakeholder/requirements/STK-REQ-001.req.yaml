@@ -59,6 +59,10 @@ stakeholder:
             - SYS-REQ-045
             - SYS-REQ-046
             - SYS-REQ-047
+            - SYS-REQ-086
+            - SYS-REQ-087
+            - SYS-REQ-088
+            - SYS-REQ-089
     obligation_checklist:
         - nominal
         - missing_path
@@ -71,6 +75,10 @@ stakeholder:
         - type_mismatch
         - negative_array_index
         - sentinel_value_boundary
+        - determinism
+        - idempotency
+        - nil_safety
+        - edge_case
 lifecycle:
     change_history:
         - date: "2026-04-13T16:25:24Z"

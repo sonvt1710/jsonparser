@@ -73,6 +73,10 @@ stakeholder:
             - SYS-REQ-058
             - SYS-REQ-059
             - SYS-REQ-064
+            - SYS-REQ-106
+            - SYS-REQ-107
+            - SYS-REQ-108
+            - SYS-REQ-109
     obligation_checklist:
         - nominal
         - malformed_input
@@ -80,6 +84,10 @@ stakeholder:
         - partial_literal
         - truncated_escape_sequence
         - empty_input
+        - determinism
+        - nil_safety
+        - encoding_safety
+        - edge_case
 lifecycle:
     change_history:
         - date: "2026-04-13T17:27:00Z"

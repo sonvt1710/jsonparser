@@ -64,6 +64,9 @@ stakeholder:
           derived_reqs:
             - SYS-REQ-008
             - SYS-REQ-085
+            - SYS-REQ-097
+            - SYS-REQ-098
+            - SYS-REQ-099
     obligation_checklist:
         - nominal
         - empty_input
@@ -73,6 +76,9 @@ stakeholder:
         - truncated_mid_element
         - callback_error_propagation
         - sentinel_value_boundary
+        - determinism
+        - nil_safety
+        - edge_case
 lifecycle:
     change_history:
         - date: "2026-04-13T17:14:56Z"

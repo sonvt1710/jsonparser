@@ -58,6 +58,9 @@ stakeholder:
             - SYS-REQ-049
             - SYS-REQ-050
             - SYS-REQ-056
+            - SYS-REQ-100
+            - SYS-REQ-101
+            - SYS-REQ-102
     obligation_checklist:
         - nominal
         - missing_path
@@ -69,6 +72,9 @@ stakeholder:
         - nested_mutation
         - error_propagation
         - sentinel_value_boundary
+        - idempotency
+        - nil_safety
+        - edge_case
 lifecycle:
     change_history:
         - date: "2026-04-13T17:16:45Z"

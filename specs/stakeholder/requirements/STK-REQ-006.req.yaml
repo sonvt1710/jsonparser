@@ -43,11 +43,17 @@ stakeholder:
             - SYS-REQ-080
             - SYS-REQ-081
             - SYS-REQ-082
+            - SYS-REQ-103
+            - SYS-REQ-104
+            - SYS-REQ-105
     obligation_checklist:
         - nominal
         - malformed_input
         - empty_input
         - truncated_at_value_boundary
+        - determinism
+        - nil_safety
+        - edge_case
 lifecycle:
     change_history:
         - date: "2026-04-13T17:27:00Z"
